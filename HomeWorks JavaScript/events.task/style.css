@@ -1,0 +1,27 @@
+.line {
+  display: flex;
+  gap: 1em;
+}
+
+/* Задание 6 */
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: black;
+}
+#square {
+  width: 100px;
+  height: 100px;
+}
+/* Задание 7 */
+.squareRedGreen {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+/* Задание 8 */
+.squares {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
