@@ -1,0 +1,29 @@
+.body {
+  background-color: rgb(0, 0, 0);
+}
+.title {
+  color: rgb(255, 255, 255);
+  margin: 0 auto;
+  width: 200px;
+  padding: 20px;
+}
+.main {
+  display: flex;
+  gap: 1em;
+  margin: 0 auto;
+  width: 270px;
+}
+.form {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  margin: 0 auto;
+  width: 270px;
+  border: 1px dashed rgb(255, 255, 255);
+  position: relative;
+}
+.buts {
+  display: flex;
+  position: absolute;
+  transform: translate(190%, 70%);
+}
