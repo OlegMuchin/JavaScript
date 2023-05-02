@@ -42,7 +42,7 @@ function scripts(arrayObjForm, titleNameWeb, Key) {
     main.ul.append(li);
     //
     let task = document.createElement("p");
-    task.className = "p"
+    task.className = "p";
     task.textContent = name;
     li.append(task);
     //
@@ -80,9 +80,13 @@ function scripts(arrayObjForm, titleNameWeb, Key) {
       if (vopros) {
         event.target.parentElement.parentElement.remove();
         for (let index = 0; index < ar.length; index++) {
-          if (ar[index].name == event.target.parentElement.parentElement.querySelector(".p").textContent){
+          if (
+            ar[index].name ==
+            event.target.parentElement.parentElement.querySelector(".p")
+              .textContent
+          ) {
             console.log(ar[index]);
-            ar.splice(index,1)
+            ar.splice(index, 1);
             localStorage.setItem(number, JSON.stringify(ar));
           }
         }
@@ -93,18 +97,23 @@ function scripts(arrayObjForm, titleNameWeb, Key) {
     event.preventDefault();
     if (event.target.className == "complite") {
       for (let index = 0; index < ar.length; index++) {
-        if (ar[index].name == event.target.parentElement.parentElement.querySelector(".p").textContent){
+        if (
+          ar[index].name ==
+          event.target.parentElement.parentElement.querySelector(".p")
+            .textContent
+        ) {
           if (event.target.style.backgroundColor === "red") {
             event.target.innerHTML = "&#x2714";
             event.target.parentElement.parentElement.style.backgroundColor =
               "green";
             event.target.style.backgroundColor = "green";
-            ar[index].done = true
+            ar[index].done = true;
           } else {
             event.target.innerHTML = "&#x2716";
-            event.target.parentElement.parentElement.style.backgroundColor = "red";
+            event.target.parentElement.parentElement.style.backgroundColor =
+              "red";
             event.target.style.backgroundColor = "red";
-            ar[index].done = false
+            ar[index].done = false;
           }
           localStorage.setItem(number, JSON.stringify(ar));
         }
@@ -142,16 +151,16 @@ function scripts(arrayObjForm, titleNameWeb, Key) {
     });
     MainForm.mainForm.addEventListener("submit", () => {
       event.preventDefault();
-      let textName = newForm(MainForm.input.value, false, MainForm);
-      let obj = { name: textName.textContent, done: false };
+      let textName = newForm(MainForm.input.value, false, MainForm).textContent;
+      let obj = { name: textName, done: false };
       ar.push(obj);
       localStorage.setItem(number, JSON.stringify(ar));
     });
     MainForm.ul.addEventListener("click", () => {
       deleteForm(number);
     });
-    MainForm.ul.addEventListener("click", ()=>{
-      yesAndNo(number)
+    MainForm.ul.addEventListener("click", () => {
+      yesAndNo(number);
     });
   }
   web(arrayObjForm, titleNameWeb, Key);
@@ -174,6 +183,13 @@ function arrayLoadForms(num) {
   return array[num];
 }
 let ar = [];
-let title = document.querySelector(".body");
-let key = document.querySelector("#todo");
-scripts([], `${title.id}`, `${key.className}`);
+let title = document.querySelectorAll(".titleWeb");
+let key = document.querySelectorAll(".keyWeb");
+let number1 = document.querySelectorAll(".loadWeb");
+for (let index = 0; index < title.length; index++) {
+  scripts(arrayLoadForms(number1[index].id), title[index].id, key[index].id);
+}
+
+
+
+// localStorage.setItem(JSON.stringify([1,2,3,4,5]))
